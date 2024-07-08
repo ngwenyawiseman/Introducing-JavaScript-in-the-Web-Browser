@@ -25,7 +25,7 @@ setTimeout(() => {
     myMessage.innerText = 'Hello, DOM!';
 }, 3000);
 
-const fruits = ['Apples', 'Pears', 'Oranges', 'Grapes', 'Bananas'];
+const fruits = ['Apples', 'Oranges', 'Grapes', 'Bananas'];
 const fruitList = document.querySelector('.fruits');
 fruits.forEach(fruit => {
     const li = document.createElement('li');
@@ -51,4 +51,17 @@ buttonElements.forEach(button => {
 
 theMessageButton.addEventListener('dblclick', () => {
     document.body.classList.toggle('lightmode');
+});
+
+// Function to add a new fruit
+const addFruitButton = document.querySelector('.addFruitButton');
+const newFruitInput = document.querySelector('.newFruitInput');
+addFruitButton.addEventListener('click', () => {
+    const newFruit = newFruitInput.value.trim();
+    if (newFruit.length > 0) {
+        const li = document.createElement('li');
+        li.innerText = newFruit;
+        fruitList.appendChild(li);
+        newFruitInput.value = ''; 
+    }
 });
